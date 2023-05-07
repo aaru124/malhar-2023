@@ -1,0 +1,63 @@
+html {
+    margin: 0px;
+  }
+  body {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .main-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    margin: auto;
+  }
+
+  .display-vid {
+    height: 750px;
+  }
+
+  .main-line {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: "Roboto Slab", serif;
+    color: #5d095d;
+  }
+
+  .sub-line {
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: "Roboto Slab", serif;
+    color: #615a61;
+  }
+
+  @media (max-width: 800px) {
+    .display-vid {
+      height: 600px;
+    }
+  }
+
+  @media (max-width: 660px) {
+    .display-vid {
+      height: 360px;
+    }
+    .main-line {
+      font-size: 1.6rem;
+    }
+    .sub-line {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 380px) {
+      .display-vid {
+        height: 300px;
+      }
+      .main-line {
+        font-size: 1.2rem;
+      }
+      .sub-line {
+        font-size: 0.6rem;
+      }
+    }
+  }
