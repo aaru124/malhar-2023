@@ -1,6 +1,4 @@
-import "./style.css";
-
-import * as THREE from "three";
+import * as THREE from "https://cdn.skypack.dev/three@0.152.2";
 
 let scene,
   camera,
@@ -45,14 +43,14 @@ function init() {
   document.body.appendChild(renderer.domElement);
 
   let loader = new THREE.TextureLoader();
-  loader.load("smoke.png", function (texture) {
+  loader.load("./assets/smoke.png", function (texture) {
     let cloudGeo = new THREE.PlaneGeometry(500, 500);
     let cloudMaterial = new THREE.MeshLambertMaterial({
       map: texture,
       transparent: true,
     });
 
-    for (let p = 0; p < 50; p++) {
+    for (let p = 0; p < 30; p++) {
       var cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
       cloud.position.set(
         Math.random() * 400 - 200,
