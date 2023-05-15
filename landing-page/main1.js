@@ -5,6 +5,7 @@ var scene,
   portalLight,
   cam,
   renderer,
+  flash,
   // clock,
   portalParticles = [],
   smokeParticles = [],
@@ -58,6 +59,10 @@ function initScene() {
   blueLight.position.set(300, 300, 200);
   scene.add(blueLight);
 
+  flash = new THREE.PointLight(0xffef00, 30, 500 ,1.7);
+  flash.position.set(0,0,100);
+  scene.add(flash);
+
   window.addEventListener("resize", onWindowResize, false);
 
   let loader = new THREE.TextureLoader();
@@ -95,7 +100,9 @@ function initScene() {
       );
       particle.rotation.z = Math.random()* 360;
       particle.material.opacity = 0.6;
-      portalParticles.push(particle);
+      portalParticles.push(particle);flash = new THREE.PointLight(0x062d89, 30, 500 ,1.7);
+      flash.position.set(200,300,100);
+      scene.add(flash);
       scene.add(particle);
     }
     // clock = new THREE.Clock();
@@ -132,6 +139,15 @@ let interval = 1 / 10;
 function update() {
   requestAnimationFrame(update);
   delta += clock.getDelta();
+  if(Math.random() > 0.93 || flash.power > 100) {
+    if(flash.power < 100) 
+      flash.position.set(
+        Math.random()*400,
+        0 + Math.random() *200,
+        100
+      );
+    flash.power = 300 + Math.random() * 500;
+  }
 
   if (delta > interval) {
     // The draw or time dependent code are here
@@ -141,6 +157,7 @@ function update() {
     smokeParticles.forEach((p) => {
       p.rotation.z -= 0.00000000001;
     });
+    
 
     renderer.render(scene, cam);
 
