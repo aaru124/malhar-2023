@@ -100,9 +100,7 @@ function initScene() {
       );
       particle.rotation.z = Math.random()* 360;
       particle.material.opacity = 0.6;
-      portalParticles.push(particle);flash = new THREE.PointLight(0x062d89, 30, 500 ,1.7);
-      flash.position.set(200,300,100);
-      scene.add(flash);
+      portalParticles.push(particle);
       scene.add(particle);
     }
     // clock = new THREE.Clock();
